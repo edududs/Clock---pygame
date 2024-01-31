@@ -37,6 +37,13 @@ class Clock(Game):
     def __init__(
         self, screen_size: tuple | None = None, clock_radius: int = 200
     ) -> None:
+        """
+        Initialize the clock with the given screen size and clock radius.
+
+        Parameters:
+            screen_size (tuple | None): The size of the screen. Defaults to None.
+            clock_radius (int): The radius of the clock. Defaults to 200.
+        """
         super().__init__(screen_size)
         self.font = pygame.font.Font(None, 36)
         self.center = (self.screen.get_width() // 2, self.screen.get_height() // 2)
@@ -46,6 +53,9 @@ class Clock(Game):
         self.second_hand_length = self.clock_radius * 0.85
 
     def run(self) -> None:
+        """
+        Run the game loop.
+        """
         while self.running:
             self.events()
             self.update()
@@ -53,14 +63,25 @@ class Clock(Game):
             self.clock.tick(60)
 
     def events(self) -> None:
+        """
+        This function handles events using the pygame library. It does not take any parameters and does not return any value.
+        """
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.running = False
 
     def update(self) -> None:
+        """
+        Update the state of the object.
+        """
         pass
 
     def draw(self) -> None:
+        """
+        Draws a clock on the screen with the current time, including the clock face, tick marks, and clock hands.
+        Does not take any parameters.
+        Returns None.
+        """
         # Preenche o fundo com a cor
         self.screen.fill((255, 255, 255))
 
